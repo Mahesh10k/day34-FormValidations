@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 97vh;
+            background-color: aquamarine;
+        }
+        span{
+            display:block;
+            color: red;
+            width:200px;
+        }
+        fieldset{
+            background-color: aqua;
+            padding: 20px;
+        }
+        input{
+            display: block;
+            height: 30px;
+            width: 200px;
+        }
+        button{
+            display: block;
+            background-color: blue;
+            color: white;
+            margin: auto;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+     <fieldset>
+        <legend style="font-size: xx-large;">Sign Up</legend>
+        <form action="" >
+            <input type="text" required placeholder="Name" id="username"> <br>
+            <span id="nameError"></span>
+            <input type="email" placeholder="Email" id="useremail" required> <br>
+            <span id="emailError"></span>
+            <input type="password" placeholder="password" required id="userpassword"> <br>
+            <span id="passwordError"></span>
+            <button type="submit">Submit</button>
+         </form>
+     </fieldset> 
+   
+
+     <script>
+         document.querySelector("form").addEventListener("submit",(event)=>{
+            event.preventDefault();
+
+          
+
+           userName= document.getElementById("username").value.trim()
+           userPassword=document.getElementById("userpassword").value.trim()
+           userEmail=document.getElementById("useremail").value.trim()
+
+           let nameError=document.getElementById("nameError")
+           let emailError=document.getElementById("emailError")
+           let passwordError=document.getElementById("passwordError")
+           
+
+           let nameReg=/^[A-Za-z]{3,}$/
+           let emailReg=/^[A-Za-z0-9!#$%^&*]+@[A-Za-z]+\.[A-Za-z]{2,}$/
+           let passwordReg=/^(?=(.*[A-Z]{1,}))(?=(.*[a-z]{1,}))(?=(.*[0-9]{1,}))(?=(.*[!@#$%^&*-_]{1,}))[A-Za-z0-9!@#$%^&*-_]{8,15}$/
+
+
+           isSignup=true;
+
+           if(!nameReg.test(userName)){
+                 nameError.textContent="The name should contains small and capitals letters only.";
+                 isSignup=false;
+           }
+
+           if(!emailReg.test(userEmail)){
+                emailError.textContent="the email must be contains @."
+                isSignup=false;
+           }
+
+           if(!passwordReg.test(userPassword)){
+                passwordError.textContent="The password must contains a Capital letter, a Small letter, a number and a symbol(!@#$%^&*-_) and length between 8 and 15 characters only."
+                isSignup=false;
+           }
+
+           
+           
+           if(isSignup){
+               document.querySelector("fieldset").style.display="none";
+               localStorage.setItem("Email",userEmail)
+               localStorage.setItem("Password",userPassword)
+                setTimeout(()=>{
+                    alert("Your Signup Completed Succesfully!")
+                    window.location.href="login.html"
+                },2000)
+           }
+
+         })
+     </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 97vh;
+            background-color: aquamarine;
+        }
+        fieldset{
+            background-color: aqua;
+            padding: 20px;
+        }
+        input{
+            display: block;
+            height: 30px;
+            width: 200px;
+        }
+        button{
+            display: block;
+            background-color: blue;
+            color: white;
+            margin: auto;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Login</legend>
+        <form action="">
+            <input type="email" name="email" id="loginemail" required> <br>
+            <input type="password" name="password" id="loginpassword" required> <br>
+            <button type="submit">Login</button>
+        </form>
+    </fieldset>
+
+    <script>
+       document.querySelector("form").addEventListener("submit",(event)=>{
+        event.preventDefault();
+        let loginEmail=document.getElementById("loginemail").value.trim()
+        let loginPassword=document.getElementById("loginpassword").value.trim()
+
+        let Email=localStorage.getItem("Email")
+        let Password=localStorage.getItem("Password")
+       
+
+        if(loginEmail==Email && loginPassword==Password){
+            document.querySelector("fieldset").style.display="none";
+            setTimeout(()=>{
+                alert("You are Logged in Successfully !")
+            },2000)
+        }else{
+            alert("You are not Logged in due to Incorrect Credentials!")
+        }
+       })
+    </script>
+</body>
+</html>
