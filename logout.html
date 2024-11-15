@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 96vh;
+            flex-direction: column;
+        }  
+        button{
+            background-color: blue;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Home Page</h2>
+        <button>Logout</button>
+
+
+        <script>
+            document.querySelector("button").addEventListener("click",()=>{
+                if(confirm("Are you sure to want to Logout ?")){
+                setTimeout(()=>{
+                    alert("You are Logged Out Successfully!")
+                    window.location.href="index.html"
+                    isSignup=false;
+                },2000)
+            }
+            })
+        </script>
+</body>
+</html>
