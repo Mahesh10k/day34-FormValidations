@@ -40,12 +40,12 @@
      <fieldset>
         <legend style="font-size: xx-large;">Sign Up</legend>
         <form action="" >
-            <input type="text" required placeholder="Name" id="username"> <br>
-            <span id="nameError"></span>
-            <input type="email" placeholder="Email" id="useremail" required> <br>
-            <span id="emailError"></span>
-            <input type="password" placeholder="password" required id="userpassword"> <br>
-            <span id="passwordError"></span>
+            <input type="text" required placeholder="Name" id="username">
+            <span id="nameError"></span> <br>
+            <input type="email" placeholder="Email" id="useremail" required> 
+            <span id="emailError"></span> <br>
+            <input type="password" placeholder="Password" required id="userpassword">
+            <span id="passwordError"></span> <br>
             <button type="submit">Submit</button>
          </form>
      </fieldset> 
@@ -79,7 +79,7 @@
            }
 
            if(!emailReg.test(userEmail)){
-                emailError.textContent="the email must be contains @."
+                emailError.textContent="The email must be contains @ and atleast on letter after symbol(.)."
                 isSignup=false;
            }
 
@@ -87,6 +87,7 @@
                 passwordError.textContent="The password must contains a Capital letter, a Small letter, a number and a symbol(!@#$%^&*-_) and length between 8 and 15 characters only."
                 isSignup=false;
            }
+
 
            
            

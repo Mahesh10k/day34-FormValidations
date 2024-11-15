@@ -28,6 +28,8 @@
         <script>
             document.querySelector("button").addEventListener("click",()=>{
                 if(confirm("Are you sure to want to Logout ?")){
+                document.querySelector("h1").style.display="none";
+                document.querySelector("button").style.display="none";
                 setTimeout(()=>{
                     alert("You are Logged Out Successfully!")
                     window.location.href="index.html"
